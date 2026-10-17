@@ -3,7 +3,7 @@ import React from 'react'
 export const AuthDataContext = React.createContext()
 
 function AuthContext({ children }) {
-    let serverUrl = "http://localhost:8000"
+    let serverUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000"
 
     let value = {
         serverUrl

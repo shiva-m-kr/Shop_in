@@ -4,6 +4,16 @@ import validator from "validator";
 import bcrypt from "bcryptjs";
 import { genToken, genToken1 } from "../config/token.js";
 
+const getCookieOptions = () => {
+    const isProduction = process.env.NODE_ENV === "production";
+    return {
+        httpOnly: true,
+        secure: isProduction,
+        sameSite: isProduction ? "none" : "lax",
+        maxAge: 7 * 24 * 60 * 60 * 1000
+    };
+};
+
 export const registration = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -38,12 +48,7 @@ export const registration = async (req, res) => {
 
         const token = await genToken(user._id);
 
-        res.cookie("token", token, {
-            httpOnly: true,
-            secure: false,
-            sameSite: "strict",
-            maxAge: 7 * 24 * 60 * 60 * 1000
-        });
+        res.cookie("token", token, getCookieOptions());
 
         return res.status(201).json({
             message: "User registered successfully",
@@ -81,12 +86,7 @@ export const login = async (req, res) => {
         }
         const token = await genToken(user._id);
 
-        res.cookie("token", token, {
-            httpOnly: true,
-            secure: false,
-            sameSite: "strict",
-            maxAge: 7 * 24 * 60 * 60 * 1000
-        });
+        res.cookie("token", token, getCookieOptions());
         return res.status(200).json({
             message: "Login successful",
             user: {
@@ -109,7 +109,12 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
     try {
-        res.clearCookie("token")
+        const isProduction = process.env.NODE_ENV === "production";
+        res.clearCookie("token", {
+            httpOnly: true,
+            secure: isProduction,
+            sameSite: isProduction ? "none" : "lax"
+        });
         return res.status(200).json({
             message: "Logout successful"
         })
@@ -133,12 +138,7 @@ export const googleLogin = async (req, res) => {
             })
         }
         let token = await genToken(user._id);
-        res.cookie("token", token, {
-            httpOnly: true,
-            secure: false,
-            sameSite: "strict",
-            maxAge: 7 * 24 * 60 * 60 * 1000
-        })
+        res.cookie("token", token, getCookieOptions());
         return res.status(200).json(user);
     } catch (error) {
         return res.status(500).json({
@@ -158,12 +158,7 @@ export const adminLogin = async (req, res) => {
         if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
             let token = await genToken1(email)
 
-            res.cookie("token", token, {
-                httpOnly: true,
-                secure: false,
-                sameSite: "strict",
-                maxAge: 7 * 24 * 60 * 60 * 1000
-            })
+            res.cookie("token", token, getCookieOptions());
             return res.status(200).json(token);
         }
         return res.status(400).json({ message: "Invalid creadintials for admin" })

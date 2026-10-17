@@ -2,7 +2,7 @@ import React from "react";
 export const authDataContext = React.createContext()
 
 const AuthContext = ({children}) => {
-    let serverUrl = "http://localhost:8000/api/"
+    let serverUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000/api/"
     let value = {
         serverUrl
     }
