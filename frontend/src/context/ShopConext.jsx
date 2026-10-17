@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useState, useEffect, useContext, useCallback } from 'react'
-import { AuthDataContext } from './authContext.jsx'
+import { AuthDataContext } from './AuthContext.jsx'
 import { UserDataContext } from './UserContext.jsx'
 import {
   loadGuestCart,
