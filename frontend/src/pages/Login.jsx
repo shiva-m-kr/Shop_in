@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
-import { AuthDataContext } from "../context/authContext.jsx";
+import { AuthDataContext } from "../context/AuthContext.jsx";
 import { auth, provider } from "../../utils/Firebase";
 import { signInWithPopup } from "firebase/auth";
 import { UserDataContext } from "../context/UserContext.jsx";
