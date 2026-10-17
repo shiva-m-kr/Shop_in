@@ -2,7 +2,7 @@ import React from "react";
 export const authDataContext = React.createContext()
 
 const AuthContext = ({children}) => {
-    let serverUrl = import.meta.env.VITE_BACKEND_URL || "https://shop-in-backend.onrender.com"
+    let serverUrl =  "https://shop-in-backend.onrender.com"
     let value = {
         serverUrl
     }
