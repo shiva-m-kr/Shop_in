@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import OrderStatusBadge from './OrderStatusBadge'
-import { AuthDataContext } from '../context/authContext'
+import { AuthDataContext } from '../context/AuthContext'
 import { downloadOrderInvoice } from '../utils/downloadInvoice'
 import { FiChevronRight, FiDownload, FiAlertCircle } from 'react-icons/fi'
 
