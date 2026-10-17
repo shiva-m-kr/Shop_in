@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
-import { AuthDataContext } from '../context/authContext'
+import { AuthDataContext } from '../context/AuthContext'
 import { shopContext } from '../context/ShopConext'
 import Title from '../component/Title'
 import Footer from '../component/Footer'
