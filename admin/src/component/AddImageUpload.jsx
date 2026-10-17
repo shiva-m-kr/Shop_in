@@ -1,5 +1,5 @@
 import React from 'react'
-import uploadImg from '../assets/uploadImg.png'
+import UploadImg from '../assets/uploadImg.png'
 
 function AddImageUpload({ images, setImages }) {
   const nums = [1, 2, 3, 4]
