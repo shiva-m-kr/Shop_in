@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import Title from '../Title'
 import Footer from '../Footer'
-import { AuthDataContext } from '../../context/authContext'
+import { AuthDataContext } from '../../context/AuthContext'
 import { downloadOrderInvoice } from '../../utils/downloadInvoice'
 import { FiDownload, FiAlertCircle } from 'react-icons/fi'
 
