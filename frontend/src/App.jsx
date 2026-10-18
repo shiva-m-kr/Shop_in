@@ -28,6 +28,9 @@ function App() {
             <Routes>
                 <Route path="/login" element={userData ? (<Navigate to={location.state?.from || "/"} replace />) : (<Login />)} />
                 <Route path="/signup" element={userData ? (<Navigate to={location.state?.from || "/"} replace />) : (<Registration />)} />
+                <Route path="/registration" element={userData ? (<Navigate to={location.state?.from || "/"} replace />) : (<Registration />)} />
+
+                
                 <Route path="/" element={userData ? (<Home />) : (<Navigate to="/login" state={{ from: location.pathname }} replace />)} />
                 <Route path="/about" element={userData ? (<About />) : (<Navigate to="/login" state={{ from: location.pathname }} replace />)} />
                 <Route path="/collection" element={userData ? (<Collections />) : (<Navigate to="/login" state={{ from: location.pathname }} replace />)} />
