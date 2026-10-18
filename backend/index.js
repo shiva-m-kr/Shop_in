@@ -23,7 +23,7 @@ app.use(cookieParser())
 
 const allowedOrigins = [
     "https://shop-in-frontend.onrender.com",
-    "http://localhost:5174",
+    "https://shop-in-admin.onrender.com",
     process.env.FRONTEND_URL,
     process.env.ADMIN_URL
 ].filter(Boolean);
