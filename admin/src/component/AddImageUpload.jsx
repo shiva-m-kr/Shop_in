@@ -21,7 +21,7 @@ function AddImageUpload({ images, setImages }) {
             >
               <img
                 className='w-22 h-22 object-cover rounded-xl border-2 border-dashed border-slate-200 group-hover:border-[#0c7c86] bg-slate-50 p-1 transition-colors'
-                src={!image ? uploadImg : URL.createObjectURL(image)}
+                src={!image ? UploadImg : URL.createObjectURL(image)}
                 alt={`upload-${num}`}
               />
               <input
